@@ -23,10 +23,12 @@ app.use(bodyParser.json());
 var appRoutes = require('./routes/app');
 var storageRoutes = require('./routes/storage.js');
 var cosmoRoutes = require('./routes/cosmodb.js');
+var documentRoutes = require('./routes/document.js');
 
 app.use('/', appRoutes);
 app.use('/storage', storageRoutes);
 app.use('/cosmos', cosmoRoutes);
+app.use('/document', documentRoutes);
 
 //Escuchar Peticiones
 app.listen(3000, () => {
