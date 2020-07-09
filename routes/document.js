@@ -32,11 +32,38 @@ app.post('/', (request, resp, next) => {
         });
     });
 
-    resp.status(200).json({
-        mensaje: 'peticion correcta',
-        ok: true,
 
+    ///get collection document db 
+    let collectionUrl = uriFactory.createDocumentCollectionUri(databaseId, collectionId);
+    return new Promise((resolve, reject) => {
+        client.queryDocuments(
+            collectionUrl,
+            'SELECT VALUE r.children FROM root r WHERE r.lastName = "Andersen"'
+        ).toArray((err, results) => {
+            if (err) reject(err)
+            else {
+                for (var queryResult of results) {
+                    if (queryResult === undefined) { return; }
+                    let resultString = JSON.stringify(queryResult);
+
+                    queryResult.forEach(element => {
+                        console.log(element);
+                        resp.status(200).json({
+                            mensaje: 'peticion correcta',
+                            ok: true,
+                            resultado: element
+                        });
+
+                    });
+                    // console.log(`\tQuery returned ${resultString}`);
+                }
+                console.log();
+            }
+        });
     });
+
+
+
 
 });
 
