@@ -17,10 +17,9 @@ app.use(function(req, res, next) {
 });
 
 
-var username = 'mongodbazure'
-var password = 'i5cWBisGu27h4nrP8aez3mRT54jTDQ916MhJa84yDZQku9zVypk335Ghj0q4T2GqB09zILZ5aySlz5aONeM91w==';
-const encodedPassword = encodeURIComponent("i5cWBisGu27h4nrP8aez3mRT54jTDQ916MhJa84yDZQku9zVypk335Ghj0q4T2GqB09zILZ5aySlz5aONeM91w==");
-var host = 'mongodbazure.mongo.cosmos.azure.com';
+var username = 'mongodbtesting'
+const encodedPassword = encodeURIComponent("8LfeykydeI0OYggZQROfdeDOfsKOaiRHnt2y8ZCJMGyFMbxWzHxhLGOYEdr38mQOWktPwcLWWhg0YL11mxKZDQ==");
+var host = 'mongodbtesting.documents.azure.com';
 var urlServer = `mongodb://${username}:${encodedPassword}@${host}:10255/?ssl=true`;
 
 //conexion a la base de datos
